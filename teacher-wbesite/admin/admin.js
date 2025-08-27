@@ -21,8 +21,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const ADMIN_USERNAME = "teacher"; // Set your desired username
     const ADMIN_PASSWORD = "password123"; // CHANGE THIS
 
+    /*
     const API_URL = 'https://your-teacher-api.onrender.com/api/chapters';
-
+*/
+    const API_URL = 'https://teacher-website-fullstack-1.onrender.com/api/chapters';
     // --- LOGIN ---
     loginBtn.addEventListener('click', () => {
         // Updated to check both username and password
