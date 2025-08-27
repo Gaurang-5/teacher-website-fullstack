@@ -20,7 +20,14 @@ mongoose.connect(process.env.MONGODB_URI, {
 });
 
 // --- Middleware ---
-app.use(cors()); // <-- 2. USE CORS
+//app.use(cors()); // <-- 2. USE CORS
+
+const corsOptions = {
+  origin: 'https://teacher-website-fullstack.vercel.app',
+  optionsSuccessStatus: 200
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 
 // --- Routes ---
