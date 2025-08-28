@@ -2,7 +2,6 @@
 
 const express = require('express');
 const mongoose = require('mongoose');
-const cors = require('cors'); // <-- 1. IMPORT CORS
 require('dotenv').config();
 
 const app = express();
@@ -20,19 +19,11 @@ mongoose.connect(process.env.MONGODB_URI, {
 });
 
 // --- Middleware ---
-//app.use(cors()); // <-- 2. USE CORS
-
-const corsOptions = {
-  origin: 'https://teacher-website-fullstack.vercel.app',
-  optionsSuccessStatus: 200
-};
-
-app.use(cors(corsOptions));
 app.use(express.json());
 
 // --- Routes ---
 const chapterRoutes = require('./routes/chapters');
-app.use('/api/chapters', chapterRoutes); // <-- 3. YOUR API ROUTE
+app.use('/api/chapters', chapterRoutes);
 
 // --- Test Route ---
 app.get('/', (req, res) => {

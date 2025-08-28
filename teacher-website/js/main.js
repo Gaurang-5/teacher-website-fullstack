@@ -29,9 +29,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     async function loadChaptersForClass(classNum) {
-        /*
-        const API_URL = 'https://your-teacher-api.onrender.com/api/chapters';*/
-        const API_URL = 'https://teacher-website-fullstack-1.onrender.com/api/chapters';
+        const API_URL = 'http://localhost:3000/api/chapters';
         try {
             const response = await fetch(API_URL);
             const allChapters = await response.json();

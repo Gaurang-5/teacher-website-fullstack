@@ -5,11 +5,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const passwordPrompt = document.getElementById('password-prompt');
     const mainContent = document.getElementById('main-content');
     const loginBtn = document.getElementById('login-btn');
-    const usernameInput = document.getElementById('username'); // New
+    const usernameInput = document.getElementById('username');
     const passwordInput = document.getElementById('password');
     const chaptersTbody10 = document.getElementById('chapters-tbody-10');
     const chaptersTbody9 = document.getElementById('chapters-tbody-9');
     const createNewBtn = document.getElementById('create-new-btn');
+    const loginHeader = document.getElementById('login-header'); // Get the login header
     
     // Modal elements
     const modal = document.getElementById('chapter-modal');
@@ -19,18 +20,21 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // --- CREDENTIALS ---
     const ADMIN_USERNAME = "teacher"; // Set your desired username
-    const ADMIN_PASSWORD = "password123"; // CHANGE THIS
+    const ADMIN_PASSWORD = "pass123"; // CHANGE THIS
 
-    /*
-    const API_URL = 'https://your-teacher-api.onrender.com/api/chapters';
-*/
-    const API_URL = 'https://teacher-website-fullstack-1.onrender.com/api/chapters';
+    const API_URL = 'http://localhost:3000/api/chapters';
+
     // --- LOGIN ---
     loginBtn.addEventListener('click', () => {
-        // Updated to check both username and password
         if (usernameInput.value === ADMIN_USERNAME && passwordInput.value === ADMIN_PASSWORD) {
+            // Hide login elements
             passwordPrompt.style.display = 'none';
+            if (loginHeader) loginHeader.style.display = 'none';
+            document.querySelector('#particles-js').style.display = 'none';
+
+            // Show main content and change body class for proper styling
             mainContent.style.display = 'block';
+            document.body.className = 'admin-dashboard-page';
             loadChapters();
         } else {
             alert('Incorrect username or password!');
@@ -120,8 +124,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Handle Edit and Delete button clicks
-    document.querySelector('.admin-container').addEventListener('click', async (e) => {
+    // Event delegation for Edit and Delete buttons
+    document.body.addEventListener('click', async (e) => {
         const id = e.target.dataset.id;
         if (!id) return;
 
