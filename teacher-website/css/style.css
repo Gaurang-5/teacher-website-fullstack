@@ -14,6 +14,7 @@ TABLE OF CONTENTS
    - Futuristic Login
    - Main Dashboard (Light Theme)
 7. Footer
+8. Media Queries for Responsiveness
 --- */
 
 /* --- 1. Global Styles & Variables --- */
@@ -830,4 +831,97 @@ footer .container {
 footer a {
     color: var(--accent-magenta);
     font-weight: bold;
+}
+
+/* --- 8. Media Queries for Responsiveness --- */
+
+/* Tablets and smaller devices */
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    header nav ul {
+        gap: 20px;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero p {
+        font-size: 1.1rem;
+    }
+
+    .year-selection-grid .container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* Mobile devices */
+@media (max-width: 480px) {
+    header {
+        top: 10px;
+        width: 90%;
+    }
+    
+    header .container {
+        padding: 10px 20px;
+    }
+
+    header .logo {
+        font-size: 1.2rem;
+    }
+    
+    .header-logo {
+        height: 30px;
+    }
+
+    header nav ul {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .cta-button {
+        padding: 15px 30px;
+        font-size: 1rem;
+    }
+
+    .page-header h1 {
+        font-size: 2.2rem;
+    }
+
+    .selection-card {
+        padding: 20px;
+    }
+
+    .table-header, .table-row {
+        grid-template-columns: 30px 1fr 40px 40px 40px;
+        gap: 10px;
+        font-size: 0.9rem;
+    }
+    
+    .chapter-name {
+        font-size: 1rem;
+    }
+
+    .chapter-links-item {
+        font-size: 1.2rem;
+    }
+
+    footer .container {
+        flex-direction: column;
+        text-align: center;
+    }
 }
